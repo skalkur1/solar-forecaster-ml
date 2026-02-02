@@ -39,21 +39,21 @@ if os.path.exists(OUTFILE):
     try:
         existing = pd.read_csv(OUTFILE, parse_dates=["run_time_utc"])
         completed_keys = set(zip(existing.run_time_utc.astype(str), existing.horizon_hr))
-        print(f"📥 Resuming: {len(completed_keys)} records already completed")
+        print(f"Resuming: {len(completed_keys)} records already completed")
     except Exception:
-        print("⚠️ Output file corrupted or empty. Restarting fresh.")
+        print("Output file corrupted or empty. Restarting fresh.")
         completed_keys = set()
 else:
     completed_keys = set()
 
 
 def log_error(run_time_str, fxx, error_type, error_msg):
-    """Log errors to CSV file"""
+    "
     with open(ERROR_LOG, "a") as f:
         f.write(f"{run_time_str},{fxx},{error_type},{error_msg}\n")
 
 def log_progress(message):
-    """Log progress milestones"""
+    
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_msg = f"[{timestamp}] {message}"
     print(log_msg)
@@ -61,7 +61,6 @@ def log_progress(message):
         f.write(log_msg + "\n")
 
 def retry_on_failure(max_retries=MAX_RETRIES, delay=RETRY_DELAY):
-    """Retry decorator for handling transient S3/network errors"""
     def decorator(func):
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -77,7 +76,7 @@ def retry_on_failure(max_retries=MAX_RETRIES, delay=RETRY_DELAY):
                     if attempt == max_retries - 1:
                         # Final attempt failed
                         log_error(args[0], args[1], f"{type(e).__name__}_after_retries", str(e))
-                        print(f"⚠️ Failed after {max_retries} retries: {args[0]} f{args[1]:02d} → {e}")
+                        print(f"Failed after {max_retries} retries: {args[0]} f{args[1]:02d} → {e}")
                         return None
                     wait_time = delay * (2 ** attempt)
                     time.sleep(wait_time)
@@ -87,10 +86,8 @@ def retry_on_failure(max_retries=MAX_RETRIES, delay=RETRY_DELAY):
 
 @retry_on_failure(max_retries=MAX_RETRIES)
 def fetch_hrrr(run_time_str, fxx):
-    """
-    Fetch HRRR data for a specific run time and forecast horizon.
-    Returns a dict with data (or NaN for missing variables), or None if already completed.
-    """
+    #Returns a dict with data (or NaN for missing variables) or None if already completed.
+    
     key = (run_time_str, fxx)
     if key in completed_keys:
         return None
@@ -185,13 +182,13 @@ def cleanup_data_directory(): #clean up for RAM overflow
                                 pass
             
             if deleted_count > 0:
-                log_progress(f"🗑️  Cleaned up {deleted_count} old GRIB files")
+                log_progress(f"Cleaned up {deleted_count} old GRIB files")
     except Exception as e:
         pass  
 
 
 def calculate_progress(completed_count, total_count, start_time):
-    """Calculate and return progress statistics"""
+    
     elapsed = time.time() - start_time
     progress_pct = (completed_count / total_count) * 100
     
@@ -291,12 +288,12 @@ def main():
     # Final statistics
     elapsed_hours = (time.time() - start_time) / 3600
     log_progress("=" * 60)
-    log_progress("🚀 HRRR download complete!")
+    log_progress("HRRR download complete!")
     log_progress(f"Total time: {elapsed_hours:.2f} hours")
     log_progress(f"Total records: {completed:,}/{total_expected:,}")
     if os.path.exists(OUTFILE):
         df = pd.read_csv(OUTFILE)
-        log_progress(f"\n📊 Data Completeness:")
+        log_progress(f"\nData Completeness:")
         log_progress(f"   Total rows: {len(df):,}")
         log_progress(f"   DSWRF missing: {df['dswrf'].isna().sum():,} ({df['dswrf'].isna().mean()*100:.1f}%)")
         log_progress(f"   TCC missing: {df['tcc'].isna().sum():,} ({df['tcc'].isna().mean()*100:.1f}%)")

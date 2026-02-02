@@ -38,7 +38,7 @@ TIME_FEATURES = [
 ]
 
 def train_horizon_baseline(horizon):
-    print(f"\n=== Training Horizon {horizon} (Geometry-only Baseline) ===")
+    print(f"\nTraining Horizon {horizon} (Geometry-only Baseline)")
 
     split_dir = os.path.join(DATA_DIR, f"horizon{horizon}", "splits")
     train_path = os.path.join(split_dir, "train.csv")

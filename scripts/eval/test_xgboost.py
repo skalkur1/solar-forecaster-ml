@@ -18,7 +18,7 @@ SYSTEM_COLS = ["system_10", "system_4", "system_50", "system_51"]
 
 
 def compute_per_system_rmse(df, preds):
-    """Return dict of per-system RMSE if system columns exist."""
+    #Return dict of per-system RMSE if system columns exist.
     rmse_dict = {}
 
     for sys_col in SYSTEM_COLS:
@@ -40,7 +40,7 @@ def compute_per_system_rmse(df, preds):
 
 
 def test_horizon(horizon, model_dir, output_dir):
-    print(f"\n=== Testing Horizon {horizon} ===")
+    print(f"\nTesting Horizon {horizon}")
 
     split_dir = DATA_DIR / f"horizon{horizon}" / "splits"
     test_path = split_dir / "test.csv"

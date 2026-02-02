@@ -33,7 +33,7 @@ TIME_FEATURES = ["hour_sin", "hour_cos",
 
 
 def train_horizon_baseline(horizon):
-    print(f"\n=== Training Horizon {horizon} (XGBoost Main Model) ===")
+    print(f"\nTraining Horizon {horizon} (XGBoost Main Model)")
 
     split_dir = os.path.join(DATA_DIR, f"horizon{horizon}", "splits")
     train_path = os.path.join(split_dir, "train.csv")

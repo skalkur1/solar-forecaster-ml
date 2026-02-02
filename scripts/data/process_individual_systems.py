@@ -9,16 +9,7 @@ PROJECT_ROOT = SCRIPT_DIR.parent.parent
 
 
 def extract_ac_power_from_csv(filepath, ac_col_name, system_id):
-    """
-    Reads a messy CSV file line-by-line and extracts:
-    - First column (assumed timestamp)
-    - AC power column
-
-    Returns only rows that:
-    - Fall exactly on the hour
-    - Are from year 2019 or later
-    """
-
+    # extracts: First column (assumed timestamp), ac power column and returns only rows that fall exactly on the hour and are from year 2019 or later.
     rows = []
 
     with open(filepath, "r", encoding="utf-8", errors="ignore") as f:

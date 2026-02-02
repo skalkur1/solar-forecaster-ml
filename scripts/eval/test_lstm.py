@@ -82,14 +82,14 @@ class LSTMModel(nn.Module):
 
 
 def build_system_mapping(df):
-    """Return a mapping from system column names to integer IDs."""
+
     system_cols = [c for c in df.columns if c.startswith("system_")]
     mapping = {name: i for i, name in enumerate(system_cols)}
     return mapping, system_cols
 
 
 def extract_system_id(df, system_cols, mapping):
-    """Return the integer system_id for each row."""
+
     if "system_id" in df.columns:
         return df["system_id"].values
     system_ids = []
@@ -100,7 +100,7 @@ def extract_system_id(df, system_cols, mapping):
 
 
 def eval_per_system(model, df, loader):
-    """Compute per-system RMSE."""
+    #Compute per-system RMSE
     model.eval()
     preds_dict = {sys_id: [] for sys_id in df['system_id'].unique()}
     trues_dict = {sys_id: [] for sys_id in df['system_id'].unique()}
@@ -125,7 +125,7 @@ def eval_per_system(model, df, loader):
 
 
 def load_model_from_json(model_path):
-    """Load model architecture and weights from JSON file."""
+    #Load model and weights from JSON file
     with open(model_path, 'r') as f:
         model_data = json.load(f)
  
@@ -154,7 +154,7 @@ def load_model_from_json(model_path):
 
 
 def test_horizon(horizon, model_dir, output_dir):
-    print(f"\n=== Testing Horizon {horizon} ===")
+    print(f"\nTesting Horizon {horizon}")
 
     split_dir = DATA_DIR / f"horizon{horizon}" / "splits"
     test_path = split_dir / "test.csv"

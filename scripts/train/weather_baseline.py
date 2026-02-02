@@ -32,7 +32,7 @@ TIME_FEATURES = ["dswrf", "t2m", "tcc", "system_10","system_4","system_50","syst
 
 
 def train_horizon_baseline(horizon):
-    print(f"\n=== Training Horizon {horizon} (Weather-only Baseline) ===")
+    print(f"\nTraining Horizon {horizon} (Weather-only Baseline)")
 
     split_dir = os.path.join(DATA_DIR, f"horizon{horizon}", "splits")
     train_path = os.path.join(split_dir, "train.csv")

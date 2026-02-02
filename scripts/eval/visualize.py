@@ -117,7 +117,7 @@ def plot_rmse_comparison():
     plt.show()
     
     #Print summary statistics
-    print("\n=== Summary Statistics ===")
+    print("\n Summary Statistics:")
     summary = combined_df.groupby('model')['test_rmse'].agg(['mean', 'min', 'max'])
     print(summary)
 

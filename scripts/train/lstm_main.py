@@ -91,13 +91,13 @@ class LSTMModel(nn.Module):
 
 #Helper functions
 def build_system_mapping(df):
-    """Return a mapping from system column names to integer IDs."""
+    #Return a mapping from system column names to integer IDs.
     system_cols = [c for c in df.columns if c.startswith("system_")]
     mapping = {name: i for i, name in enumerate(system_cols)}
     return mapping, system_cols
 
 def extract_system_id(df, system_cols, mapping):
-    """Return the integer system_id for each row."""
+    #Return the integer system_id for each row.
     if "system_id" in df.columns:
         return df["system_id"].values
     system_ids = []
@@ -133,7 +133,7 @@ def eval_per_system(model, df, loader):
     return rmse_dict
 
 def train_horizon(horizon):
-    print(f"\n=== Training Horizon {horizon} (LSTM) ===")
+    print(f"\nTraining Horizon {horizon} (LSTM)")
     split_dir = os.path.join(DATA_DIR, f"horizon{horizon}", "splits")
     train_path = os.path.join(split_dir, "train.csv")
     val_path = os.path.join(split_dir, "val.csv")
