@@ -1,0 +1,26 @@
+{
+  "horizon": 12,
+  "test_rmse": 0.18652293292531463,
+  "test_mae": 0.13310865039007072,
+  "per_system_rmse": {
+    "system_10": 0.19805819940253172,
+    "system_4": 0.18731263333529663,
+    "system_50": 0.16832472664410328,
+    "system_51": 0.1913168813760845
+  },
+  "features_used": [
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos",
+    "ac_power_on_forecast_issue",
+    "cos_zenith",
+    "dswrf",
+    "t2m",
+    "tcc",
+    "system_10",
+    "system_4",
+    "system_50",
+    "system_51"
+  ]
+}

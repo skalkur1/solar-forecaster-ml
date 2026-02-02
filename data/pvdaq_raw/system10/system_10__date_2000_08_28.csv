@@ -1,0 +1,2 @@
+measured_on,ac_current__427,ac_power__423,ac_voltage__426,ambient_temp__428,das_battery_voltage__434,das_temp__433,dc_pos_current__425,dc_pos_voltage__424,dc_power__422,inverter_temp__432,module_temp_1__429,module_temp_2__430,module_temp_3__431,poa_irradiance__421,system_id
+2000-08-28 03:28:00,1.6192,0.23921,122.48,17.644,13.244,18.245,-0.00175,-1.1255,0.002,18.251,45.581,47.943,51.585,1051.2,10

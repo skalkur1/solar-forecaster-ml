@@ -1,0 +1,20 @@
+{
+  "horizon": 7,
+  "test_rmse": 0.19730051477311478,
+  "test_mae": 0.15011289425785004,
+  "per_system_rmse": {
+    "system_10": 0.20588698009916942,
+    "system_4": 0.20141336349231284,
+    "system_50": 0.17726612549371284,
+    "system_51": 0.20342634110881908
+  },
+  "features_used": [
+    "dswrf",
+    "t2m",
+    "tcc",
+    "system_10",
+    "system_4",
+    "system_50",
+    "system_51"
+  ]
+}

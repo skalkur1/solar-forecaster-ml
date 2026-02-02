@@ -1,0 +1,2 @@
+measured_on,ac_current__758,ac_power_1__767,ac_power_2__768,ac_power__752,ac_volts__757,ambient_temp__759,das_battery_voltage__769,das_temperature__764,dc_neg_current__756,dc_neg_voltage__755,dc_pos_current__754,dc_pos_voltage__753,dc_power_1__765,dc_power_2__766,dc_power__751,inverter_temp_2__770,inveter_temp__763,module_temp_1__760,module_temp_2__761,module_temp_3__762,poa_irradiance__750,system_id
+1822-03-01 00:30:00,52.12,52.77,4.157,-1341.0,18.53,-1597.0,-48.94,492.4,0.316,0.925,0.316,3.997,60.0,29.0,30.0,185.2,415.6,-399.7,543.6,-489.3,60.0,50

@@ -1,0 +1,23 @@
+{
+  "horizon": 2,
+  "test_rmse": 0.14649368371878232,
+  "test_mae": 0.11110014166412784,
+  "per_system_rmse": {
+    "0": 0.15433435546881544,
+    "1": 0.15919422038043204,
+    "2": 0.1288845092257082,
+    "3": 0.14184927109909284
+  },
+  "features_used": [
+    "dswrf",
+    "tcc",
+    "t2m",
+    "cos_zenith",
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos",
+    "ac_power_norm"
+  ],
+  "lookback": 6
+}
